@@ -1,4 +1,4 @@
-module shared-protos
+module github.com/alfredoptarigan/shared-protos/proto
 
 go 1.23.4
 
