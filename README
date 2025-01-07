@@ -1,0 +1,3 @@
+# Shared Protos
+This directory contains the shared protocol buffer definitions used by the various components of the project.
+These definitions are used to ensure consistent communication between different parts of the system.
