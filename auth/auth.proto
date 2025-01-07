@@ -6,12 +6,20 @@ option go_package = "./proto";
 service AuthService {
   rpc Register(RegisterRequest) returns (RegisterResponse);
   rpc Login(LoginRequest) returns (LoginResponse);
+  rpc GetUserInfo(UserInfoRequest) returns (UserInfoResponse);
 }
 
 message RegisterRequest {
   string username = 1;
   string email = 2;
   string password = 3;
+  string FullName = 4;
+  string phone = 5;
+  string address = 6;
+  string city = 7;
+  string state = 8;
+  string zip = 9;
+  string country = 10;
 }
 
 message RegisterResponse {
@@ -28,4 +36,21 @@ message LoginResponse {
   bool success = 1;
   string token = 2;
   string message = 3;
+}
+
+message UserInfoRequest {
+  string user_id = 1;
+}
+
+message UserInfoResponse {
+  string user_id = 1;
+  string username = 2;
+  string email = 3;
+  string full_name = 4;
+  string phone = 5;
+  string address = 6;
+  string city = 7;
+  string state = 8;
+  string zip = 9;
+  string country = 10;
 }
