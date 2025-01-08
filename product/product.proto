@@ -1,0 +1,47 @@
+syntax = "proto3";
+package product;
+import "auth/auth.proto";
+
+option go_package = "./proto";
+
+service ProductService {
+  rpc GetProduct(GetProductRequest) returns (GetProductResponse);
+  rpc GetProducts(GetProductsRequest) returns (GetProductsResponse);
+  rpc CreateProduct(CreateProductRequest) returns (CreateProductResponse);
+}
+
+message GetProductRequest {
+  string product_id = 1;
+}
+
+message GetProductResponse {
+  string product_id = 1;
+  string name = 2;
+  string description = 3;
+  string price = 4;
+  string quantity = 5;
+  auth.UserInfoResponse seller = 6;
+}
+
+message GetProductsRequest {
+  string query = 1;
+}
+
+message GetProductsResponse {
+  repeated GetProductResponse products = 1;
+}
+
+message CreateProductRequest {
+  string name = 1;
+  string description = 2;
+  string price = 3;
+  string quantity = 4;
+}
+
+message CreateProductResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+
+
